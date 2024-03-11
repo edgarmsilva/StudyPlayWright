@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [ main, master ]
 
+permissions:
+  contents: write
+
 jobs:
   test:
     timeout-minutes: 60
@@ -23,10 +26,10 @@ jobs:
     
     - name: Run Playwright tests
       run: npx playwright test
-    # - uses: actions/upload-artifact@v4
-    #   with:
-    #     name: TestReport
-    #     path: TestReport/
+    - uses: actions/upload-artifact@v4
+      with:
+        name: TestReport
+        path: TestReport/
 
     # - run: ls & mkdir TestReport & mv TestReport/* TestReport
 
