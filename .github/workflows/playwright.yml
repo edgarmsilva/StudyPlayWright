@@ -30,7 +30,7 @@ jobs:
         path: TestReport/
         retention-days: 30
 
-    - run: ls & mkdir TestReport & mv TestReport/* TestReport
+    # - run: ls & mkdir TestReport & mv TestReport/* TestReport
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
