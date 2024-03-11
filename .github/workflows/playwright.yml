@@ -24,11 +24,9 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
-      if: always()
       with:
         name: TestReport
         path: TestReport/
-        retention-days: 30
 
     # - run: ls & mkdir TestReport & mv TestReport/* TestReport
 
