@@ -32,11 +32,11 @@ jobs:
 
     # - run: ls & mkdir TestReport & mv TestReport/* TestReport
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: relatorio de testes Web
-        path: TestReport
+    # - name: Upload artifact
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: relatorio de testes Web
+    #     path: TestReport
 
     - name: Publish report
       uses: peaceiris/actions-gh-pages@v3
