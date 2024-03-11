@@ -14,10 +14,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 18
+    
     - name: Install dependencies
       run: npm ci
+    
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
@@ -26,3 +29,10 @@ jobs:
         name: TestReport
         path: TestReport/
         retention-days: 30
+    
+    - name: Publish report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: TestReport
