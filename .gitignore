@@ -6,6 +6,9 @@ test-results
 logs
 *.log
 
+TestReport/
+data/
+
 
 # Dependency directories
 node_modules/
