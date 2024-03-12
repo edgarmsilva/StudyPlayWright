@@ -19,3 +19,6 @@ npx playwright show-report
 
 ## configurations:
 Aways remember to configurate the reportsm executions and video evidence in the file playwright.config.ts
+
+## Report Page:
+https://edgarmsilva.github.io/StudyPlayWright/
