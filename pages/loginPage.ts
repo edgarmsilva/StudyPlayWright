@@ -17,9 +17,9 @@ export class LoginPage {
     await this.page.goto('https://www.saucedemo.com/v1/');
   }
 
-  async login() {
-    await this.inpuUserName.fill('standard_user');
-    await this.inpuPassword.fill('secret_sauce');
+  async login(user, password) {
+    await this.inpuUserName.fill(user);
+    await this.inpuPassword.fill(password);
     await this.loginButton.click();
     await expect(this.page).toHaveURL('https://www.saucedemo.com/v1/inventory.html');
   }

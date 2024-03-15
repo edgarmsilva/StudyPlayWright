@@ -45,3 +45,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: TestReport
+
+    - name: Send Report
+      if: always()
+      uses: joonvena/robotframework-reporter-action@v2.4
+      with:
+        report_path: TestReport
+        gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+        show_passed_tests: true

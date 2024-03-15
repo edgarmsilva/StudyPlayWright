@@ -17,36 +17,37 @@ export default defineConfig({
     reporter: [['html', { outputFolder: 'my-report' }]],
   });
 
-// test('1 - Login com sucesso', async ({ page }) => {
-//     await page.goto('https://www.saucedemo.com/v1/');
-//     const inpuUserName = await page.locator('input#user-name');
-//     const inpuPassword = await page.locator('input#password');    
-//     const loginButton = await page.locator('input#login-button');
-//     await expect(loginButton).toBeVisible();
+test('1 - Login com sucesso', async ({ page }) => {
+    await page.goto('https://www.saucedemo.com/v1/');
+
+    const inpuUserName = await page.locator('input#user-name');
+    const inpuPassword = await page.locator('input#password');    
+    const loginButton = await page.locator('input#login-button');
+    await expect(loginButton).toBeVisible();
 
 
-//     // para debug: adicionar o page.pause() para executar no debug todos os steps e parar nesse ponto (é como se fosse um breakpoint)
-//     // await page.pause()
+    // para debug: adicionar o page.pause() para executar no debug todos os steps e parar nesse ponto (é como se fosse um breakpoint)
+    // await page.pause()
 
-//     await inpuUserName.fill('standard_user');
-//     await inpuPassword.fill('secret_sauce');
-//     await loginButton.click();
+    await inpuUserName.fill('standard_user');
+    await inpuPassword.fill('secret_sauce');
+    await loginButton.click();
 
-//     await expect(page).toHaveURL('https://www.saucedemo.com/v1/inventory.html');
+    await expect(page).toHaveURL('https://www.saucedemo.com/v1/inventory.html');
 
-//     const produtctTitle = await page.locator('div.product_label');
+    const produtctTitle = await page.locator('div.product_label');
 
-//     await expect(produtctTitle).toBeVisible();
-//     await expect(produtctTitle).toHaveText('Products');
+    await expect(produtctTitle).toBeVisible();
+    await expect(produtctTitle).toHaveText('Products');
     
-// });
+});
 
 
 test('1a - Login com sucesso - Page Object', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const productsPage = new ProductsPage(page);
     await loginPage.goto();
-    await loginPage.login();
+    await loginPage.login('standard_user', 'secret_sauce');
     await productsPage.validateTitle();
 });
 
