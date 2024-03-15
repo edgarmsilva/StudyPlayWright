@@ -20,6 +20,7 @@ npx playwright show-report
 ## configurations:
 Aways remember to configurate the reportsm executions and video evidence in the file playwright.config.ts
 
-
 ## Report Page:
 After the test job finishes, a report page will be available ate the address below:
+
+https://edgarmsilva.github.io/StudyPlayWright/
